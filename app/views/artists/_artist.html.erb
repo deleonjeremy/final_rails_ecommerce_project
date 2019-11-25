@@ -1,0 +1,14 @@
+<div class="album">
+    <h2> <%= artist.name %></h2>
+    <ul>
+      <% artist.albums.each do |album| %>
+        <li>
+          <% if album.image.present? %>
+            <%= image_tag url_for(album.image) %>
+          <% end%>
+          <%= album.name %>
+          <p>Price: $<%= album.price %> </p>
+        </li>
+      <% end %>
+    </ul>
+</div>
