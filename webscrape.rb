@@ -5,10 +5,13 @@ RSpotify.authenticate('b1e0dad39f0f453190203b7755550476', '1bfa8af723bf41eb9da86
 require 'open-uri'
 require 'json'
 
-artist = RSpotify::Artist.find('7Ln80lUS6He07XvHI8qqHH')
+artist = RSpotify::Artist.find('2YZyLoL8N0Wb9xBt1NhZWg')
+jcole = RSpotify::Artist.find('6l3HvQ5sa6mXTsMTB19rO5')
+kdotalbums = artist.albums
+colealbums = jcole.albums
 
-first_album_tracks = artist.albums.first.tracks
+puts artist.name
 
-first_album.each do |x|
-  puts x.name
+colealbums.uniq do |a|
+  puts a.name, a.release_date
 end
