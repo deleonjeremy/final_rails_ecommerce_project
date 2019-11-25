@@ -6,6 +6,7 @@
     <% artist.albums.each do |album| %>
       <li>
         <%= album.name %>
+        <p>Price: $<%= album.price %> </p>
       </li>
     <% end %>
   </ul>

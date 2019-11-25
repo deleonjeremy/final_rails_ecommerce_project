@@ -20,7 +20,8 @@ eggalbums.each do |x|
         .build(
           name: x.name,
           release_date: x.release_date,
-          genre: 'Hip Hop'
+          genre: 'Hip Hop',
+          price: rand(5..500).to_i
         )
         .save
 end
@@ -34,7 +35,8 @@ bussyalbums.each do |x|
                .build(
                  name: x.name,
                  release_date: x.release_date,
-                 genre: 'Hip Hop'
+                 genre: 'Hip Hop',
+                 price: rand(5..500).to_i
                )
                .save
 end
