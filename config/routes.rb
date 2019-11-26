@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get '/artists/:id', to: 'artists#show', id: /\d+/
 
   get '/albums', to: 'albums#index'
-  get '/albums/:id', to: 'artists#show', id: /\d+/
+  get '/albums/:id', to: 'albums#show', id: /\d+/, as: 'show_album'
 
   post '/artists/add_to_cart/:id', to: 'artists#add_to_cart', as: 'add_to_cart'
   delete '/artists/remove_from_cart/:id', to: 'artists#remove_from_cart', as: 'remove_from_cart'

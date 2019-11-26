@@ -1,0 +1,18 @@
+<p class="title is-4">
+  <ul>
+    <li>
+      <strong>
+        <%= album.name %>
+      </strong>
+    </li>
+    <li>
+      Artist: <%= album.artist.name %>
+    </li>
+    <li>
+      Genre: <%= album.genre %>
+    </li>
+    <li>
+      Price: <%= number_to_currency album.price / 10.0 %>
+    </li>
+  </ul>
+</p>

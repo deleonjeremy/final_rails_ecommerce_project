@@ -2,7 +2,7 @@
   <div class="column is-one-third">
     <div class="card album">
       <div class="card-content">
-          <p class="title is-4"><%= album.name %></p>
+          <p class="title is-4"><%= link_to album.name, show_album_path(album.id) %></p>
             <% if album.image.present? %>
               <div class="card-image">
                 <figure class="image is-4by3">

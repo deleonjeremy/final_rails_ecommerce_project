@@ -5,5 +5,7 @@ class AlbumsController < ApplicationController
     @albums = Album.all
   end
 
-  def show; end
+  def show
+    @album = Album.find(params[:id])
+  end
 end
