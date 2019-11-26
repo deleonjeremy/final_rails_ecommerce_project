@@ -5,6 +5,7 @@
         <%= album.name %>
       </strong>
     </li>
+
     <li>
       Artist: <%= album.artist.name %>
     </li>
@@ -13,6 +14,9 @@
     </li>
     <li>
       Price: <%= number_to_currency album.price / 10.0 %>
+    </li>
+    <li>
+      Description: <%= album.description %>
     </li>
   </ul>
 </p>
