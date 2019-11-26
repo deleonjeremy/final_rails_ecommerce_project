@@ -1,3 +1,19 @@
-<h1>West End Records</h1>
+<h3 class="title is-4">Home</h3>
 
-<%= render @artists%>
+<details>
+  <summary>Shopping Cart</summary>
+  <ul>
+    <% if @cart.empty? %>
+      <p>No items in cart.</p>
+    <% else %>
+      <% @cart.each do |product| %>
+        <li>
+          <%= product.name %> - <%= link_to 'Remove', remove_from_cart_path(product), method: :delete%>
+        </li>
+      <% end %>
+    <% end %>
+  </ul>
+</details>
+<div class="columns is-multiline">
+  <%= render @artists%>
+</div>

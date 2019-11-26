@@ -20,7 +20,16 @@
           <li>
             <strong>Genre: <%= album.genre %> </strong>
           </li>
-
+          <% if @cart.include?(album)%>
+            <li>
+              <strong>Album In Cart</strong>
+              <%= button_to 'remove from cart', remove_from_cart_path(album.id), method: :delete%>
+            </li>
+            <% else %>
+            <li>
+              <%= link_to 'add to cart', add_to_cart_path(album.id), method: :post %>
+            </li>
+          <% end %>
         </ul>
       </div>
     </div>

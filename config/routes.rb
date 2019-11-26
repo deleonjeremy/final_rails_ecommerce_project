@@ -9,5 +9,8 @@ Rails.application.routes.draw do
   get '/albums', to: 'albums#index'
   get '/albums/:id', to: 'artists#show', id: /\d+/
 
+  post '/artists/add_to_cart/:id', to: 'artists#add_to_cart', as: 'add_to_cart'
+  delete '/artists/remove_from_cart/:id', to: 'artists#remove_from_cart', as: 'remove_from_cart'
+
   root to: 'artists#index'
 end
