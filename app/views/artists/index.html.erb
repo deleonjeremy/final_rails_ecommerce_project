@@ -1,10 +1,8 @@
-<h3 class="title is-4">Home</h3>
-
 <details>
   <summary>Shopping Cart</summary>
   <ul>
     <% if @cart.empty? %>
-      <p>No items in cart.</p>
+      <li>No items in cart.</li>
     <% else %>
       <% @cart.each do |product| %>
         <li>
