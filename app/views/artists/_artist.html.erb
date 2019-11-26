@@ -1,14 +1,28 @@
-<div class="album">
-    <h2> <%= artist.name %></h2>
-    <ul>
-      <% artist.albums.each do |album| %>
-        <li>
-          <% if album.image.present? %>
-            <%= image_tag url_for(album.image) %>
-          <% end%>
-          <%= album.name %>
-          <p>Price: $<%= album.price %> </p>
-        </li>
-      <% end %>
-    </ul>
-</div>
+<% artist.albums.each do |album| %>
+  <div class="column is-one-third">
+    <div class="card album">
+      <div class="card-content">
+          <p class="title is-4"><%= album.name %></p>
+            <% if album.image.present? %>
+              <div class="card-image">
+                <figure class="image is-4by3">
+                    <%= image_tag url_for(album.image) %>
+                </figure>
+              </div>
+            <% end%>
+        <ul>
+          <li>
+            <strong>Artist: <%= album.artist.name %> </strong>
+          </li>
+          <li>
+            <strong>Price: <%= number_to_currency album.price / 10.0 %> </strong>
+          </li>
+          <li>
+            <strong>Genre: <%= album.genre %> </strong>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </div>
+<% end %>
