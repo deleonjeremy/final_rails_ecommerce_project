@@ -10,8 +10,9 @@ jcole = RSpotify::Artist.find('6l3HvQ5sa6mXTsMTB19rO5')
 kdotalbums = artist.albums
 colealbums = jcole.albums
 
-puts artist.name
-
-colealbums.uniq do |a|
-  puts a.name, a.release_date
+kdotalbums.each do |a|
+  each_track = a.tracks
+  each_track.each do |t|
+    puts t.name
+  end
 end

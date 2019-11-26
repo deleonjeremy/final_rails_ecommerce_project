@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_26_074909) do
+ActiveRecord::Schema.define(version: 2019_11_26_085922) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -78,6 +78,16 @@ ActiveRecord::Schema.define(version: 2019_11_26_074909) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "songs", force: :cascade do |t|
+    t.string "name"
+    t.string "release_date"
+    t.integer "album_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["album_id"], name: "index_songs_on_album_id"
+  end
+
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "albums", "artists"
+  add_foreign_key "songs", "albums"
 end
