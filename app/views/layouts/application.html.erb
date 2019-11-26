@@ -14,9 +14,39 @@
 
   <body>
     <section class="section">
-      <h1 class="title"> West End Records</h1>
-    </section>
-    <section class="section">
+      <nav class="navbar" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="/">
+          <strong class="title">West End Records</strong>
+        </a>
+
+        <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+
+      <div id="navbarBasicExample" class="navbar-menu">
+        <div class="navbar-start">
+          <a class="navbar-item" href="/">
+            Home
+          </a>
+          <a class="navbar-item" href="/albums">
+            Albums
+          </a>
+          <a class="navbar-item" href="/artists">
+            Artists
+          </a>
+          <a class="navbar-item">
+            Tracks
+          </a>
+          <a class="navbar-item">
+            Genres
+          </a>
+        </div>
+      </div>
+    </nav>
       <%= yield %>
     </section>
   </body>
