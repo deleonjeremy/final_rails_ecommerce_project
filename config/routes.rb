@@ -21,5 +21,8 @@ Rails.application.routes.draw do
   get '/songs', to: 'songs#index'
   get '/songs/:id', to: 'songs#show', id: /\d+/
 
+  get ':permalink', to: 'pages#permalink'
+  get 'static_about', to: 'pages#about', as: 'about'
+
   root to: 'artists#index'
 end
