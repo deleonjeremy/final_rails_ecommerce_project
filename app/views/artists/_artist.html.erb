@@ -29,6 +29,7 @@
             <li>
               <%= link_to 'add to cart', add_to_cart_path(album.id), method: :post %>
             </li>
+            <%= button_to 'buy now', checkout_create_path, method: :post, params: {id: album.id}, remote:true%>
           <% end %>
         </ul>
       </div>
