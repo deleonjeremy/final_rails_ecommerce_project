@@ -1,0 +1,10 @@
+<section class="section">
+  <h1 class="subtitle">List of All Genres</h1>
+  <ul>
+    <% @genres.each do |x| %>
+      <li>
+        <%= link_to x.name, show_genre_path(x.id) %>
+      </li>
+    <% end %>
+  </ul>
+</section>
