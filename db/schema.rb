@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_27_091848) do
+ActiveRecord::Schema.define(version: 2019_11_28_235438) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -67,7 +67,6 @@ ActiveRecord::Schema.define(version: 2019_11_27_091848) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "price"
-    t.string "description_string"
     t.string "description"
     t.index ["artist_id"], name: "index_albums_on_artist_id"
   end
