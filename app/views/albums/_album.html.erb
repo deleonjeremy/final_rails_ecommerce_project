@@ -7,7 +7,7 @@
     </li>
 
     <li>
-      Artist: <%= album.artist.name %>
+      Artist: <%= link_to album.artist.name, show_artist_path(album.artist.id) %>
     </li>
     <li>
       Genre: <%= album.genre %>
