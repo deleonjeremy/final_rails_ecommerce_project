@@ -17,9 +17,6 @@
           <li>
             <strong>Price: <%= number_to_currency album.price / 10.0 %> </strong>
           </li>
-          <li>
-            <strong>Genre: <%= album.genre %> </strong>
-          </li>
           <% if @cart.include?(album)%>
             <li>
               <strong>Album In Cart</strong>
