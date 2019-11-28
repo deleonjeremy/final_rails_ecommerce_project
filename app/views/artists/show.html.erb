@@ -1,2 +1,22 @@
-<h1>Artists#show</h1>
-<p>Find me in app/views/artists/show.html.erb</p>
+<section class="section">
+  <p class="title is-4">
+    <ul>
+      <li>
+        Artist:
+        <strong>
+          <%= @artist.name %>
+        </strong>
+      </li>
+      <li>
+        Albums:
+        <% @artist.albums.each do |x| %>
+        <li>
+          <strong>
+            <%= link_to x.name, show_album_path(x.id) %>
+          </strong>
+        </li>
+        <% end %>
+      </li>
+      <li>
+  </p>
+</section>
