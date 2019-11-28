@@ -6,7 +6,7 @@ class Artist < ApplicationRecord
 
   # many to many: genre
   has_many :genres
-  has_many :albums, through: :genres
+  # has_many :albums, through: :genres
 
   validates :name, presence: true
 end

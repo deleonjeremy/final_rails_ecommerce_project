@@ -6,10 +6,18 @@ class ArtistsController < ApplicationController
   before_action :load_cart
 
   def index
+    #@artists = Artist.all.paginate(page: params[:page], per_page: 1)
+    @artists = Artist.all
+
+  end
+
+  def list
     @artists = Artist.all
   end
 
-  def show; end
+  def show
+    @artist = Artist.find(params[:id])
+  end
 
   def add_to_cart
     id = params[:id].to_i
