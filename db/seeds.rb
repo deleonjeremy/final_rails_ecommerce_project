@@ -6,6 +6,7 @@ RSpotify.authenticate('b1e0dad39f0f453190203b7755550476', '1bfa8af723bf41eb9da86
 
 # Destroy all tables for reseeding
 Song.destroy_all
+Genre.destroy_all
 Album.destroy_all
 Artist.destroy_all
 AdminUser.destroy_all
@@ -66,9 +67,27 @@ bussyalbums.each do |x|
                  )
                  .save
   end
+
+  Genre.create(
+    album_id: x.id,
+    artist_id: second_artist.id,
+    name: 'Rap'
+  )
+end
+
+random_album = Album.order('random()').first.id
+random_artist = Artist.order('random()').first.id
+
+hiphop = Genre.create(album_id: random_album, artist_id: random_artist, name: 'Hip Hop')
+3.times do
+  album = Album.order('random()').first.id
+  artist = Artist.order('random()').first.id
+  random_genre = Faker::Music.genre
+  Genre.create(album_id: album, artist_id: artist, name: random_genre)
 end
 
 puts "Generated #{Artist.count} artist(s)"
 puts "Generated #{Album.count} album(s)"
 puts "Generated #{Song.count} song(s)"
+puts "Generated #{Genre.count} genre(s)"
 AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
