@@ -54,6 +54,21 @@
       </div>
     </nav>
       <script src="https://js.stripe.com/v3/"></script>
+      <section class="section">
+      <details>
+        <summary>Shopping Cart</summary>
+        <ul>
+          <% if @cart.empty? %>
+            <li>No items in cart.</li>
+          <% else %>
+            <% @cart.each do |product| %>
+              <li>
+                <%= product.name %> - <%= link_to 'Remove', remove_from_cart_path(product), method: :delete%>
+              </li>
+            <% end %>
+          <% end %>
+        </ul>
+      </details>
       <%= yield %>
     </section>
   </body>
