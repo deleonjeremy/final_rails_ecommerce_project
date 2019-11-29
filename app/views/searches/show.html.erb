@@ -1,0 +1,46 @@
+<h1 class="subtitle">Search Result</h1>
+
+<% @search.search_albums.each do |c| %>
+  <div class="column is-one-third">
+      <div class="card album">
+        <div class="card-content">
+            <p class="title is-4"><%= link_to c.name, show_album_path(c.id) %></p>
+              <% if c.image.present? %>
+                <div class="card-image">
+                  <figure class="image is-4by3">
+                      <%= image_tag url_for(c.image) %>
+                  </figure>
+                </div>
+              <% end%>
+          <ul>
+            <li>
+              <strong>Artist: <%= c.artist.name %> </strong>
+            </li>
+            <li>
+              <strong>Price: <%= number_to_currency c.price / 10.0 %> </strong>
+            </li>
+            <% if c.genres.first.present? %>
+            <li>
+              <strong>Genre: <%= c.genres.first.name %> </strong>
+            </li>
+            <% else %>
+            <li>
+              <strong>Genre: N/A</strong>
+            </li>
+            <% end %>
+            <% if @cart.include?(c)%>
+              <li>
+                <strong>Album In Cart</strong>
+                <%= button_to 'remove from cart', remove_from_cart_path(c.id), method: :delete%>
+              </li>
+              <% else %>
+              <li>
+                <%= link_to 'add to cart', add_to_cart_path(c.id), method: :post %>
+              </li>
+              <%= button_to 'buy now', checkout_create_path, method: :post, params: {id: c.id}, remote:true%>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+<% end %>

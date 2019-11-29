@@ -1,0 +1,13 @@
+<%= form_for @search, html: {class: "pure-form"} do |s|%>
+  <div class="field">
+    <%= s.label :keywords %>
+    <%= s.text_field :keywords %>
+  </div>
+
+  <div class="field">
+    <%= s.label :genre %>
+    <%= s.collection_select :genre, Genre.order(:name),:id,:name, include_blank: true %>
+  </div>
+
+  <div class="actions"><%= s.submit "Search", class: "pure-button pure-button-primary"%></div>
+<% end %>

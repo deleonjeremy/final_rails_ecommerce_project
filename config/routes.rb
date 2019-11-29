@@ -27,6 +27,8 @@ Rails.application.routes.draw do
   get '/genres', to: 'genres#index'
   get '/genres/:id', to: 'genres#show', id: /\d+/, as: 'show_genre'
 
+  resources :searches
+
   get ':permalink', to: 'pages#permalink'
   get 'static_about', to: 'pages#about', as: 'about'
 
