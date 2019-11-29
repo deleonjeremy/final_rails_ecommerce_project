@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   get '/artists/:id', to: 'artists#show', id: /\d+/, as: 'show_artist'
 
   get '/albums', to: 'albums#index'
+  get '/albums/search', to: 'albums#allproducts', as: 'search_album'
   get '/albums/:id', to: 'albums#show', id: /\d+/, as: 'show_album'
 
   post '/albums/add_to_cart/:id', to: 'albums#add_to_cart', as: 'add_to_cart'

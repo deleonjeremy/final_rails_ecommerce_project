@@ -6,7 +6,7 @@ class AlbumsController < ApplicationController
   end
 
   def allproducts
-    @albums = Album.all
+    @albums = Album.where(['name LIKE ?', "%#{params[:search]}%"])
   end
 
   def show

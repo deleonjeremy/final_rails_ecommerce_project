@@ -69,6 +69,11 @@
           <% end %>
         </ul>
       </details>
+      <%= form_tag search_album_path, :method => 'get' do %>
+        <%= text_field_tag :search, params[:search] %>
+        <%= submit_tag "Search" %>
+      <% end %>
+      <%= link_to 'Advanced Search' %>
       <%= yield %>
     </section>
   </body>
