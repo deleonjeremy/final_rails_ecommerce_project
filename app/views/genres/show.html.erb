@@ -1,8 +1,10 @@
 <section class="section">
   <h1 class="subtitle">List of <%= @genre.name %> Products</h1>
   <ul>
-    <li>
-      <%= @genre.album.name %>
-    </li>
+    <% @genre.albums.each do |x| %>
+      <li>
+         <%= link_to x.name, show_album_path(x.id) %>
+      </li>
+    <% end %>
   </ul>
 </section>
