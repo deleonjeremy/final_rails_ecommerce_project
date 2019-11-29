@@ -1,5 +1,5 @@
+# frozen_string_literal: true
+
 ActiveAdmin.register Genre do
-
-  permit_params :album_id, :artist_id, :name
-
+  permit_params :name
 end

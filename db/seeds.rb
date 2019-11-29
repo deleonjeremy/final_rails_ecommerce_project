@@ -67,23 +67,12 @@ bussyalbums.each do |x|
                  )
                  .save
   end
-
-  Genre.create(
-    album_id: x.id,
-    artist_id: second_artist.id,
-    name: 'Rap'
-  )
 end
 
-random_album = Album.order('random()').first.id
-random_artist = Artist.order('random()').first.id
-
-hiphop = Genre.create(album_id: random_album, artist_id: random_artist, name: 'Hip Hop')
+Genre.create(name: 'Hip Hop')
 3.times do
-  album = Album.order('random()').first.id
-  artist = Artist.order('random()').first.id
   random_genre = Faker::Music.genre
-  Genre.create(album_id: album, artist_id: artist, name: random_genre)
+  Genre.create(name: random_genre)
 end
 
 puts "Generated #{Artist.count} artist(s)"
