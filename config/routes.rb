@@ -11,14 +11,14 @@ Rails.application.routes.draw do
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-  get '/artists', to: 'artists#list'
+  get '/artists', to: 'artists#index'
   get '/artists/:id', to: 'artists#show', id: /\d+/, as: 'show_artist'
 
   get '/albums', to: 'albums#index'
   get '/albums/:id', to: 'albums#show', id: /\d+/, as: 'show_album'
 
-  post '/artists/add_to_cart/:id', to: 'artists#add_to_cart', as: 'add_to_cart'
-  delete '/artists/remove_from_cart/:id', to: 'artists#remove_from_cart', as: 'remove_from_cart'
+  post '/albums/add_to_cart/:id', to: 'albums#add_to_cart', as: 'add_to_cart'
+  delete '/albums/remove_from_cart/:id', to: 'albums#remove_from_cart', as: 'remove_from_cart'
 
   get '/songs', to: 'songs#index'
   get '/songs/:id', to: 'songs#show', id: /\d+/, as: 'show_song'
@@ -29,5 +29,5 @@ Rails.application.routes.draw do
   get ':permalink', to: 'pages#permalink'
   get 'static_about', to: 'pages#about', as: 'about'
 
-  root to: 'artists#index'
+  root to: 'albums#allproducts'
 end

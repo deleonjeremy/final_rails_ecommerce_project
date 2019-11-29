@@ -1,0 +1,53 @@
+<section class="section">
+<details>
+  <summary>Shopping Cart</summary>
+  <ul>
+    <% if @cart.empty? %>
+      <li>No items in cart.</li>
+    <% else %>
+      <% @cart.each do |product| %>
+        <li>
+          <%= product.name %> - <%= link_to 'Remove', remove_from_cart_path(product), method: :delete%>
+        </li>
+      <% end %>
+    <% end %>
+  </ul>
+</details>
+</section>
+<div class="columns is-multiline">
+  <% @albums.each do |album| %>
+    <div class="column is-one-third">
+      <div class="card album">
+        <div class="card-content">
+            <p class="title is-4"><%= link_to album.name, show_album_path(album.id) %></p>
+              <% if album.image.present? %>
+                <div class="card-image">
+                  <figure class="image is-4by3">
+                      <%= image_tag url_for(album.image) %>
+                  </figure>
+                </div>
+              <% end%>
+          <ul>
+            <li>
+              <strong>Artist: <%= album.artist.name %> </strong>
+            </li>
+            <li>
+              <strong>Price: <%= number_to_currency album.price / 10.0 %> </strong>
+            </li>
+            <% if @cart.include?(album)%>
+              <li>
+                <strong>Album In Cart</strong>
+                <%= button_to 'remove from cart', remove_from_cart_path(album.id), method: :delete%>
+              </li>
+              <% else %>
+              <li>
+                <%= link_to 'add to cart', add_to_cart_path(album.id), method: :post %>
+              </li>
+              <%= button_to 'buy now', checkout_create_path, method: :post, params: {id: album.id}, remote:true%>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

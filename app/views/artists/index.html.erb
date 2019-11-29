@@ -1,20 +1,10 @@
 <section class="section">
-<details>
-  <summary>Shopping Cart</summary>
+  <h1 class="subtitle">List of All Artists</h1>
   <ul>
-    <% if @cart.empty? %>
-      <li>No items in cart.</li>
-    <% else %>
-      <% @cart.each do |product| %>
-        <li>
-          <%= product.name %> - <%= link_to 'Remove', remove_from_cart_path(product), method: :delete%>
-        </li>
-      <% end %>
+    <% @artists.each do |x| %>
+      <li>
+        <%= link_to x.name, show_artist_path(x.id) %>
+      </li>
     <% end %>
   </ul>
-</details>
 </section>
-<div class="columns is-multiline">
-  <%= render @artists%>
-</div>
-
