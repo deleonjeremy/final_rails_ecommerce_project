@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_29_005448) do
+ActiveRecord::Schema.define(version: 2019_11_29_011425) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -59,6 +59,15 @@ ActiveRecord::Schema.define(version: 2019_11_29_005448) do
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
   end
 
+  create_table "album_genres", force: :cascade do |t|
+    t.integer "album_id", null: false
+    t.integer "genre_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["album_id"], name: "index_album_genres_on_album_id"
+    t.index ["genre_id"], name: "index_album_genres_on_genre_id"
+  end
+
   create_table "albums", force: :cascade do |t|
     t.string "name"
     t.string "release_date"
@@ -101,6 +110,8 @@ ActiveRecord::Schema.define(version: 2019_11_29_005448) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "album_genres", "albums"
+  add_foreign_key "album_genres", "genres"
   add_foreign_key "albums", "artists"
   add_foreign_key "songs", "artists"
 end
